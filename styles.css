@@ -2,6 +2,11 @@
     CSS resets
     YouTube vid: https://www.youtube.com/watch?v=Yl8hg2FG20Q&list=PLA0l4VLT9AlkOlAf2mHweBODcmG7FqHYo&index=10
 */
+:root {
+    --bgc: #e7e5e7;
+    --bodyFont: "Georgia", serif;
+    --h1f: "Helvetica", sans-serif;
+}
 *,
 *::before,
 *::after {
@@ -13,7 +18,8 @@
 }
 
 body {
-    font-family: "Georgia", serif;
+    background-color: var(--bgc);
+    font-family: var(--bodyFont);
     width: 90%;
     margin-inline: auto;
     display: grid;
@@ -43,7 +49,8 @@ p {
 }
 
 h1 {
-    /* font-family: var(--hf01); */
+    font-family: var(--h1f);
+    font-weight: bolder;
     margin-bottom: 1.5em;
 }
 
@@ -55,5 +62,5 @@ h1 {
 p {
     line-height: 1.7;
     padding-bottom: 1.5em;
-    font-family: var(--bfont01);
+    /* font-family: var(--bfont01); */
 }
