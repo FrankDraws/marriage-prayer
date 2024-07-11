@@ -34,33 +34,43 @@ section {
 }
 
 /*
-Font Clamp
-https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
+  Font Clamp
+  https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
 */
-
 h1,
+h2,
+h3,
 p {
     font-size: clamp(
-        var(--fluid-type-min, 1.3rem),
-        calc(1.5rem + var(--fluid-type-target, 3vw)),
+        var(--fluid-type-min, 1rem),
+        calc(1rem + var(--fluid-type-target, 3vw)),
         var(--fluid-type-max, 1.3rem)
     );
-    /* max-width: 60ch; */
 }
-
 h1 {
     font-family: var(--h1f);
-    font-weight: bolder;
-    margin-bottom: 1.5em;
+    --fluid-type-min: 1.5rem;
+    --fluid-type-max: 2.5rem;
+    --fluid-type-target: 5vw;
+    padding-bottom: 1.5em;
 }
 
-h1 {
-    --fluid-type-min: 2rem;
+h2 {
+    --fluid-type-min: 1.8rem;
     --fluid-type-max: 3rem;
-    --fluid-type-target: 5vw;
 }
+
+h3 {
+    --fluid-type-min: 1.5rem;
+    --fluid-type-max: 2.5rem;
+}
+
+h2,
+h3 {
+    max-width: 30ch;
+}
+
 p {
-    line-height: 1.7;
+    line-height: 1.8;
     padding-bottom: 1.5em;
-    /* font-family: var(--bfont01); */
 }
