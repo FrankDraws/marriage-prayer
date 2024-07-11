@@ -35,8 +35,6 @@ section {
   https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
 */
 h1,
-h2,
-h3,
 p {
     font-size: clamp(
         var(--fluid-type-min, 1rem),
@@ -50,21 +48,6 @@ h1 {
     --fluid-type-max: 2.5rem;
     --fluid-type-target: 5vw;
     padding-bottom: 1.5em;
-}
-
-h2 {
-    --fluid-type-min: 1.8rem;
-    --fluid-type-max: 3rem;
-}
-
-h3 {
-    --fluid-type-min: 1.5rem;
-    --fluid-type-max: 2.5rem;
-}
-
-h2,
-h3 {
-    max-width: 30ch;
 }
 
 p {
