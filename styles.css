@@ -44,10 +44,10 @@ p {
 }
 h1 {
     font-family: var(--h1f);
-    --fluid-type-min: 1.5rem;
-    --fluid-type-max: 2.5rem;
-    --fluid-type-target: 5vw;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
+    --fluid-type-min: 2rem;
+    --fluid-type-max: 3.5rem;
+    --fluid-type-target: 5.5vw;
 }
 
 p {
