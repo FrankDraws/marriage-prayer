@@ -1,0 +1,59 @@
+/*
+    CSS resets
+    YouTube vid: https://www.youtube.com/watch?v=Yl8hg2FG20Q&list=PLA0l4VLT9AlkOlAf2mHweBODcmG7FqHYo&index=10
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "Georgia", serif;
+    width: 90%;
+    margin-inline: auto;
+    display: grid;
+    place-items: center;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+section {
+    margin-top: 1.5em;
+}
+
+/*
+Font Clamp
+https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
+*/
+
+h1,
+p {
+    font-size: clamp(
+        var(--fluid-type-min, 1.3rem),
+        calc(1.5rem + var(--fluid-type-target, 3vw)),
+        var(--fluid-type-max, 1.3rem)
+    );
+    /* max-width: 60ch; */
+}
+
+h1 {
+    /* font-family: var(--hf01); */
+    margin-bottom: 1.5em;
+}
+
+h1 {
+    --fluid-type-min: 2rem;
+    --fluid-type-max: 3rem;
+    --fluid-type-target: 5vw;
+}
+p {
+    line-height: 1.7;
+    padding-bottom: 1.5em;
+    font-family: var(--bfont01);
+}
