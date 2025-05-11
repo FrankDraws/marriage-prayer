@@ -6,22 +6,63 @@
     --bgc: #e7e5e7;
     --bodyFont: "Georgia", serif;
     --h1f: "Helvetica", sans-serif;
+
+    --breakout-size: 80vw; /* Change this to 120vw, 90vw, etc. */
+
+    --font-scale: 1.2; /* Change this to scale all fonts, e.g. 1.4 for +40% */
+
+    --h1-min: calc(2rem * var(--font-scale));
+    --h1-max: calc(3.5rem * var(--font-scale));
+    --h1-target: calc(5.5vw * var(--font-scale));
+
+    --h2-min: calc(1.8rem * var(--font-scale));
+    --h2-max: calc(3rem * var(--font-scale));
+    --h2-target: calc(4.5vw * var(--font-scale));
+
+    --h3-min: calc(1.5rem * var(--font-scale));
+    --h3-max: calc(2.5rem * var(--font-scale));
+    --h3-target: calc(3.5vw * var(--font-scale));
+
+    --h4-min: calc(1.3rem * var(--font-scale));
+    --h4-max: calc(2rem * var(--font-scale));
+    --h4-target: calc(2.8vw * var(--font-scale));
+
+    --p-min: calc(1rem * var(--font-scale));
+    --p-max: calc(1.3rem * var(--font-scale));
+    --p-target: calc(2vw * var(--font-scale));
+
+    --blockquote-min: calc(1.2rem * var(--font-scale));
+    --blockquote-max: calc(1.6rem * var(--font-scale));
+    --blockquote-target: calc(2.5vw * var(--font-scale));
+
+    --btn-min: calc(0.875rem * var(--font-scale));
+    --btn-max: calc(1.125rem * var(--font-scale));
+    --btn-target: calc(1.8vw * var(--font-scale));
 }
+/*
+  Styles
+*/
+
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-    margin: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
     background-color: var(--bgc);
     font-family: var(--bodyFont);
-    width: 90%;
-    margin-inline: auto;
     display: grid;
     place-items: center;
 }
@@ -31,26 +72,86 @@ section {
 }
 
 /*
-  Font Clamp
+  Font Clamp (Original)
   https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
+
+  Font Clamp 2.0. Updated using ChatGPT.
+  May 1, 2025
+  https://chatgpt.com/canvas/shared/6814278fe8f48191888a2026ebd35002
 */
 h1,
-p {
-    font-size: clamp(
-        var(--fluid-type-min, 1rem),
-        calc(1rem + var(--fluid-type-target, 3vw)),
-        var(--fluid-type-max, 1.3rem)
-    );
-}
-h1 {
-    font-family: var(--h1f);
-    padding-bottom: 1em;
-    --fluid-type-min: 2rem;
-    --fluid-type-max: 3.5rem;
-    --fluid-type-target: 5.5vw;
+h2,
+h3,
+h4,
+p,
+li,
+blockquote,
+button {
+  font-size: clamp(
+    var(--fluid-type-min, 1rem),
+    calc(1rem + var(--fluid-type-target, 3vw)),
+    var(--fluid-type-max, 1.3rem)
+  );
 }
 
-p {
-    line-height: 1.8;
-    padding-bottom: 1.5em;
+h1 {
+  --fluid-type-min: var(--h1-min);
+  --fluid-type-max: var(--h1-max);
+  --fluid-type-target: var(--h1-target);
+  max-width: 30ch;
+  line-height: 1;
+  padding-bottom: 0.4em;
+}
+
+h2 {
+  --fluid-type-min: var(--h2-min);
+  --fluid-type-max: var(--h2-max);
+  --fluid-type-target: var(--h2-target);
+  max-width: 30ch;
+  padding-bottom: 1em;
+}
+
+h3 {
+  --fluid-type-min: var(--h3-min);
+  --fluid-type-max: var(--h3-max);
+  --fluid-type-target: var(--h3-target);
+  max-width: 30ch;
+  padding-bottom: 1.5em;
+}
+
+h4 {
+  --fluid-type-min: var(--h4-min);
+  --fluid-type-max: var(--h4-max);
+  --fluid-type-target: var(--h4-target);
+  max-width: 40ch;
+  padding-bottom: 1em;
+}
+
+p,
+li {
+  --fluid-type-min: var(--p-min);
+  --fluid-type-max: var(--p-max);
+  --fluid-type-target: var(--p-target);
+  max-width: 60ch;
+  line-height: 1.8;
+}
+
+blockquote {
+  --fluid-type-min: var(--blockquote-min);
+  --fluid-type-max: var(--blockquote-max);
+  --fluid-type-target: var(--blockquote-target);
+  font-style: italic;
+  border-left: 4px solid #42047e;
+  /* margin-left: 0; */
+  padding-left: 1em;
+  max-width: 60ch;
+}
+
+button {
+  --fluid-type-min: var(--btn-min);
+  --fluid-type-max: var(--btn-max);
+  --fluid-type-target: var(--btn-target);
+  padding: 0.6em 1.2em;
+  line-height: 1.2;
+  cursor: pointer;
 }
